@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16.3-alpine3.20
+    container_name: product_catalog_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: MyP@SsWoRd!
+      POSTGRES_DB: product_catalog
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    driver: local
